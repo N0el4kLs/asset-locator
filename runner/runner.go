@@ -7,10 +7,10 @@ import (
 	"os"
 	"strings"
 
-	"asset-locator/pkg/sources/icp"
-	"asset-locator/pkg/sources/weight"
-	"asset-locator/pkg/sources/weight/providers"
-	"asset-locator/pkg/util"
+	"github.com/N0el4kLs/asset-locator/pkg/sources/icp"
+	"github.com/N0el4kLs/asset-locator/pkg/sources/weight"
+	"github.com/N0el4kLs/asset-locator/pkg/sources/weight/providers"
+	"github.com/N0el4kLs/asset-locator/pkg/util"
 
 	"github.com/projectdiscovery/gologger"
 )

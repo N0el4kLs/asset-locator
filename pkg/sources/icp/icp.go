@@ -1,10 +1,10 @@
 package icp
 
 import (
-	"asset-locator/pkg/sources/icp/providers"
-	"asset-locator/pkg/sources/icp/providers/chinaz"
-	"asset-locator/pkg/sources/icp/providers/icplishi"
-	"asset-locator/pkg/sources/icp/providers/pearktrue"
+	"github.com/N0el4kLs/asset-locator/pkg/sources/icp/providers"
+	"github.com/N0el4kLs/asset-locator/pkg/sources/icp/providers/chinaz"
+	"github.com/N0el4kLs/asset-locator/pkg/sources/icp/providers/icplishi"
+	"github.com/N0el4kLs/asset-locator/pkg/sources/icp/providers/pearktrue"
 
 	"github.com/projectdiscovery/gologger"
 )

@@ -3,7 +3,7 @@ package main
 import (
 	"time"
 
-	"asset-locator/runner"
+	"github.com/N0el4kLs/asset-locator/runner"
 
 	"github.com/projectdiscovery/gologger"
 )

@@ -1,4 +1,4 @@
-module asset-locator
+module github.com/N0el4kLs/asset-locator
 
 go 1.21
 

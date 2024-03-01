@@ -4,8 +4,8 @@ import (
 	"errors"
 	"fmt"
 
-	"asset-locator/pkg/sources/icp/providers"
-	"asset-locator/pkg/util"
+	"github.com/N0el4kLs/asset-locator/pkg/sources/icp/providers"
+	"github.com/N0el4kLs/asset-locator/pkg/util"
 )
 
 // https://api.pearktrue.cn/api/icp/?domain=baidu.com

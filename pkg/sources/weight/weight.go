@@ -1,9 +1,9 @@
 package weight
 
 import (
-	"asset-locator/pkg/sources/weight/providers"
-	"asset-locator/pkg/sources/weight/providers/aizhan"
-	"asset-locator/pkg/sources/weight/providers/pearktrue"
+	"github.com/N0el4kLs/asset-locator/pkg/sources/weight/providers"
+	"github.com/N0el4kLs/asset-locator/pkg/sources/weight/providers/aizhan"
+	"github.com/N0el4kLs/asset-locator/pkg/sources/weight/providers/pearktrue"
 
 	"github.com/projectdiscovery/gologger"
 )

@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"strconv"
 
-	"asset-locator/pkg/sources/weight/providers"
-	"asset-locator/pkg/util"
+	"github.com/N0el4kLs/asset-locator/pkg/sources/weight/providers"
+	"github.com/N0el4kLs/asset-locator/pkg/util"
 )
 
 // https://api.pearktrue.cn/api/website/weight.php?domain=www.baidu.com

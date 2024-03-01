@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"asset-locator/pkg/util"
+	"github.com/N0el4kLs/asset-locator/pkg/util"
 
 	"github.com/projectdiscovery/gologger"
 )

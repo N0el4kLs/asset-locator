@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"strings"
 
-	"asset-locator/pkg/sources/weight/providers"
+	"github.com/N0el4kLs/asset-locator/pkg/sources/weight/providers"
 
 	"github.com/logrusorgru/aurora"
 	"github.com/projectdiscovery/gologger"
