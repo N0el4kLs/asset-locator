@@ -23,7 +23,7 @@ func NewAssetLocatorEngine(resultCallback func(result runner.Result)) *AssetLoca
 	}
 }
 
-// UnSetWeight sets the weight option to false
+// UnSetWeight sets the weight option to false, so the weight function will not be executed
 func (a *AssetLocatorEngine) UnSetWeight() *AssetLocatorEngine {
 	a.core.Options.Weight = false
 	return a
@@ -43,7 +43,7 @@ func (a *AssetLocatorEngine) RunSearch() {
 
 // DefaultResultCallback is the default result callback
 func DefaultResultCallback(result runner.Result) {
-	fmt.Printf("%s [%s] [%s] \n", result.Target, result.ICP, result.Weight)
+	fmt.Printf("%s [%s] [%s] \n", result.Target, result.ICP, result.Weight.ToString())
 }
 
 // DefaultOptions returns the default options for the asset locator engine
