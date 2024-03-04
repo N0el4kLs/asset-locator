@@ -3,6 +3,7 @@ module github.com/N0el4kLs/asset-locator
 go 1.21
 
 require (
+	github.com/PuerkitoBio/goquery v1.9.0
 	github.com/imroc/req/v3 v3.42.3
 	github.com/logrusorgru/aurora v2.0.3+incompatible
 	github.com/projectdiscovery/gologger v1.1.12
@@ -10,7 +11,6 @@ require (
 )
 
 require (
-	github.com/PuerkitoBio/goquery v1.9.0 // indirect
 	github.com/andybalholm/brotli v1.0.6 // indirect
 	github.com/andybalholm/cascadia v1.3.2 // indirect
 	github.com/cloudflare/circl v1.3.7 // indirect
