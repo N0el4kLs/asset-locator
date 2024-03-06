@@ -16,7 +16,7 @@ func SearchICP(domain string) (string, error) {
 		if err != nil {
 			gologger.Debug().
 				Label("Icp").
-				Msgf("Engine %s get icp error", engine.Name(), err.Error())
+				Msgf("Engine %s get icp error %s\n", engine.Name(), err.Error())
 			continue
 		}
 		return icp, nil

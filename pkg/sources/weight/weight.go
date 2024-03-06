@@ -16,7 +16,7 @@ func SearchWeight(domain string) (providers.WeightLevel, error) {
 		if err != nil {
 			gologger.Debug().
 				Label("Weight").
-				Msgf("Engine %s get weight error", engine.Name(), err.Error())
+				Msgf("Engine %s get weight error: %s\n", engine.Name(), err.Error())
 			continue
 		}
 		return weight, nil
