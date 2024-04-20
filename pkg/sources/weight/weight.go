@@ -4,6 +4,7 @@ import (
 	"github.com/N0el4kLs/asset-locator/pkg/sources/weight/providers"
 	"github.com/N0el4kLs/asset-locator/pkg/sources/weight/providers/aizhan"
 	"github.com/N0el4kLs/asset-locator/pkg/sources/weight/providers/pearktrue"
+	"github.com/N0el4kLs/asset-locator/pkg/util"
 
 	"github.com/projectdiscovery/gologger"
 )
@@ -12,7 +13,7 @@ import (
 func SearchWeight(domain string) (providers.WeightLevel, error) {
 	engines := loadWeightEngines()
 	for _, engine := range engines {
-		weight, err := engine.SearchWeight(domain)
+		weight, err := engine.SearchWeight(util.ExtractDomain(domain))
 		if err != nil {
 			gologger.Debug().
 				Label("Weight").

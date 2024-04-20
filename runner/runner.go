@@ -9,7 +9,6 @@ import (
 
 	"github.com/N0el4kLs/asset-locator/pkg/sources/icp"
 	"github.com/N0el4kLs/asset-locator/pkg/sources/weight"
-	"github.com/N0el4kLs/asset-locator/pkg/sources/weight/providers"
 	"github.com/N0el4kLs/asset-locator/pkg/util"
 
 	"github.com/projectdiscovery/gologger"
@@ -68,27 +67,16 @@ func NewRunner(option *Options) (*Runner, error) {
 
 func (r *Runner) Run() error {
 	for _, t := range r.Target {
-		tValue, tType := parseTarget(t)
-		rst := Result{
-			Target: t,
-			Weight: providers.ErrorLevel,
-		}
-		if r.Options.Weight && tType == Domain {
-			level, err := weight.SearchWeight(tValue.(string))
-			if err != nil {
-				gologger.Error().Msgf("Get Weight error: %s\n", err)
-			}
-			rst.Weight = level
-		}
-		if tType == Domain {
-			if icp, err := icp.SearchICP(tValue.(string)); err != nil {
-				gologger.Error().Msgf("Get ICP error: %s\n", err)
-			} else {
-				rst.ICP = icp
-			}
+		rst := NewResult(t)
+
+		// do weight scan
+		if r.Options.Weight {
+			rst.weightScan()
 		}
 
-		r.Callback(rst)
+		rst.icpScan()
+
+		r.Callback(*rst)
 	}
 	return nil
 }
@@ -126,7 +114,7 @@ func isValidateTarget(t string) TargetType {
 	return ErrorType
 }
 
-func parseTarget(t string) (interface{}, TargetType) {
+func parseTarget(t string) (string, TargetType) {
 	tType := isValidateTarget(t)
 
 	switch tType {
@@ -138,6 +126,31 @@ func parseTarget(t string) (interface{}, TargetType) {
 	case Domain:
 		return t, Domain
 	default:
-		return nil, ErrorType
+		return "", ErrorType
+	}
+}
+
+func (r *Result) weightScan() {
+	if r.tType == IP {
+		// transfer ip to domain
+		// Todo fix this later
+		//ip2domain.SearchIP2Domain(r.vValue)
+		return
+	}
+	level, err := weight.SearchWeight(r.vValue)
+	if err != nil {
+		gologger.Error().Msgf("Get Weight error: %s\n", err)
+	}
+	r.Weight = level
+}
+
+func (r *Result) icpScan() {
+	// only domain can do icp scan
+	if r.tType == Domain {
+		if _icp, err := icp.SearchICP(r.vValue); err != nil {
+			gologger.Error().Msgf("Get ICP error: %s\n", err)
+		} else {
+			r.ICP = _icp
+		}
 	}
 }

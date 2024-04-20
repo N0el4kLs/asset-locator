@@ -43,8 +43,12 @@ func usage() {
 Usage of ./assetlocator:
   -T string
     	file with targets
-  -t string
-    	target
-  -w	weight scan`
+  -t string 
+		target
+  -w bool	
+		weight scan
+  -debug bool
+		debug mode
+`
 	fmt.Println(comment)
 }

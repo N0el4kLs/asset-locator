@@ -10,10 +10,35 @@ import (
 	"github.com/projectdiscovery/gologger"
 )
 
+var (
+	NO_ICP_FOUND = "no icp found"
+)
+
 type Result struct {
+	// Target is input item to do weight scan or icp scan
+	// It might be in the format: IP, Domain or URL
 	Target string
-	ICP    string
+	// ICP is the ICP inform of the target
+	ICP string
+	// Weight is the weight of the target
 	Weight providers.WeightLevel
+	// tType is the type of the input item
+	// It might be IP, Domain or URL
+	tType TargetType
+	// vValue extract ip or domain from the target
+	vValue string
+}
+
+func NewResult(target string) *Result {
+	tValue, tType := parseTarget(target)
+
+	return &Result{
+		Target: target,
+		Weight: providers.ErrorLevel,
+		ICP:    NO_ICP_FOUND,
+		tType:  tType,
+		vValue: tValue,
+	}
 }
 
 type Writer struct {
