@@ -5,6 +5,7 @@ import (
 	"github.com/N0el4kLs/asset-locator/pkg/sources/icp/providers/chinaz"
 	"github.com/N0el4kLs/asset-locator/pkg/sources/icp/providers/icplishi"
 	"github.com/N0el4kLs/asset-locator/pkg/sources/icp/providers/pearktrue"
+	"github.com/N0el4kLs/asset-locator/pkg/util"
 
 	"github.com/projectdiscovery/gologger"
 )
@@ -12,11 +13,11 @@ import (
 func SearchICP(domain string) (string, error) {
 	engines := loadIcpEngines()
 	for _, engine := range engines {
-		icp, err := engine.SearchICP(domain)
+		icp, err := engine.SearchICP(util.ExtractDomain(domain))
 		if err != nil {
 			gologger.Debug().
 				Label("Icp").
-				Msgf("Engine %s get icp error", engine.Name(), err.Error())
+				Msgf("Engine %s get icp error %s\n", engine.Name(), err.Error())
 			continue
 		}
 		return icp, nil
